@@ -39,10 +39,12 @@ Color: ${Articulo4.color}
 Precio:  ${Articulo4.precio}
 Cantidad: ${Articulo4.cantidad}`);
 
-//const cantidadPedida = 0;
-//const carrito = 0;
-//const indumentaria =[Articulo1.producto, Articulo2.producto, Articulo3.producto, Articulo4.producto];
-//console.log(`Productos ${indumentaria}`);
+// seccion de compra ofrecer a usuria los productos disponibles 
+// mientras no ingrese cero puede segir comprando
+const listaProducto = [];
+listaProducto.push(Articulo1,Articulo2,Articulo3,Articulo4);
+console.log(listaProducto);
+const carrito =[];
 
 let cantidad;
 let total;
@@ -55,41 +57,48 @@ Ingrese una producto: \n
 4 ${Articulo4.producto} $ ${Articulo4.precio}\n
 Ingresar el cero para salir`);
 
-while (opcion != "0"){
-    switch (opcion){
+while (opcion != "0") {
+    switch (opcion) {
         case "1":
             alert(`Producto seleccionado ${Articulo1.producto}`);
             cantidad = parseInt(prompt("ingse la cantidad"));
-            alert(`Precio unitario ${Articulo1.precio}`)
-            total = cantidad * Articulo1.precio;
-            alert(`Total de la compra ${total}`)
+            //alert(`Precio unitario ${Articulo1.precio}`);
+            let total1 = cantidad * Articulo1.precio;
+            alert(`subtotal de la compra ${total1}`);
+            carrito.push(total1);
+            //console.log(carrito);
+
             break;
         case "2":
             alert(`Producto seleccionado ${Articulo2.producto}`);
             cantidad = parseInt(prompt("ingse la cantidad"));
-            alert(`Precio unitario ${Articulo2.precio}`)
-            total = cantidad * Articulo2.precio;
-            alert(`Total de la compra ${total}`)
+            //alert(`Precio unitario ${Articulo2.precio}`);
+             let total2 = cantidad * Articulo2.precio;
+            alert(`subtotal de la compra ${total2}`);
+            carrito.push(total2);
+            //console.log(carrito);
             break
         case "3":
             alert(`Producto seleccionado ${Articulo3.producto}`);
             cantidad = parseInt(prompt("ingse la cantidad"));
-            alert(`Pecio unitario ${Articulo3.precio}`)
-            total = cantidad * Articulo3.precio;
-            alert(`Total de la compra ${total}`)
+            //alert(`Pecio unitario ${Articulo3.precio}`);
+            let total3 = cantidad * Articulo3.precio;
+            alert(`Subtotal de la compra ${total3}`);
+            carrito.push(total3);
+            //console.log(carrito);
             break;
         case "4":
             alert(`Producto seleccionado ${Articulo4.producto}`);
             cantidad = parseInt(prompt("ingse la cantidad"));
-            alert(`Precio unitario ${Articulo4.precio}`)
-            total = cantidad * Articulo4.precio;
-            alert(`Total de la compra ${total}`)
+           // alert(`Precio unitario ${Articulo4.precio}`)
+            let total4 = cantidad * Articulo4.precio;
+            alert(`Subtotal de la compra ${total4}`);
+            carrito.push(total4);
+            //console.log(carrito);
             break;
         default:
             alert("no es una opcion validad")
     }
-    let compraTotal =+ total;
-    alert(`Total de la compra ${compraTotal}`)
     opcion = prompt(`
         Ingrese una producto: \n
         1 ${Articulo1.producto} $ ${Articulo1.precio}
@@ -100,4 +109,24 @@ while (opcion != "0"){
 }
 
 
+let sumarCarrito = carrito.reduce((totalCar, carrito) => totalCar + carrito);
 
+    alert(`total de la compra es ${sumarCarrito}`);
+
+
+
+//function verificarStock(cantidadPedida, productoSeleccionado) {
+//    if (cantidadPedida < productoSeleccionado.stock) {
+//        let stockMenosVenta = productoSeleccionado.stock - cantidadPedida;
+//        let carrito = + cantidadPedida;
+//        let total = cantidadPedida * productoSeleccionado.precio;
+//        alert(` Se agregaron ${carrito}, ${productoSeleccionado.producto}, al carrito`);
+//        alert(`Total de la comprar ${total}`)
+//        alert(`soctok disponible ${stockMenosVenta}`)
+//        console.log(` Se agregaron ${carrito}, ${productoSeleccionado.producto}`);
+//    }
+//    else {
+//        alert(`Sin stock`)
+//    }
+//}
+////verificarStock(cantidadPedida, productoSeleccionado.stock);
